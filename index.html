@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Making a content kit guide</title>
+
+    <link rel="stylesheet" href="main.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+
+<h1>Making a new content kit</h1>
+
+<p>This guide takes you through the process of creating a new MDN content kit. To follow on with the process, compare the <a href="https://github.com/mdn/content-kit-template/">content kit template</a> you will be using as a starting point with the sample content kit — <a href="https://github.com/chrisdavidmills/html5-captions-and-subtitles-content-kit">Working with HTML5 Video: Adding captions and subtitles</a>.
+
+<h2>General steps</h2>
+
+<ol>
+  <li>First of all, clone the <a href="https://github.com/mdn/content-kit-template/">content kit template</a>.</li>
+  <li>Make a copy of the template directory, and rename it using this format: <code>ck-title-of-your-kit</code>. For example, we've called our sample kit <code>ck-html5-video-captions-subtitles</code>.</li>
+  <li>Delete the <code>.git</code> directory and <code>.gitignore</code> files from inside the directory, so that you can distribute your content kit as its own standalone Github repo later on (or in some other way if wished.)</li>
+  <li>Inside the content kit directory, open up the <code>index.html</code> file in your favourite text editor, and start filling in the sections. A detailed guide to filling this in is included in the "Filling in the HTML index" section below.</li>
+  <li>Inside the demo directory, include demo resources to demonstrate the kit's subject technology. See the <a href="building_a_demo">Building a demo</a> section for tips on writing a good demo.</li>
+  <li>Inside the slides directory, include a slideshow for presenting the topic. See the <a href="writing_a_slideshow">Writing a slideshow</a> section for tips on writing a good demo.</li>
+</ol>
+
+
+<h2>Filling in the HTML index</h2>
+
+<ol>
+  <li>Fill in the content kit's <code>&lt;h1&gt;</code> and <code>&lt;title&gt;</code> elements with the name of your repo, in our case "Working with HTML5 Video: Adding captions and subtitles."</li>
+
+  <li>Fill in the three paragraphs below the <code>&lt;h1&gt;</code> with the described information. You can get a better idea by <a href="http://chrisdavidmills.github.io/html5-captions-and-subtitles-content-kit/">looking at our intro example</a>.</li>
+
+  <li>Fill in the versioning information section as instructed in the template.</li>
+
+  <li>Prerequisites for the presenter: think about what you'd need to confidently teach other people on this subject — you're not just learning it yourself. For example, if learners need intermediate JavaScript, you probably need expert JavaScript knowledge so that you can answer curveball questions and debug their code problems. Also include information on what hardware/software they need. This may not be obvious to all.</li>
+
+  <li>Prequisites for the audience: what do the audience need for the presentation? What level do they need to be at to be able to learn a decent amount from it?</li>
+
+  <li>Key points: Fill in the main things the audience will learn from the presentation.</li>
+
+  <li>Links to materials: Fill in links to all the things you and your audience will need during the course of the presentation/demo. <strong>If possible, have an archive of these things available locally in case the network is down when you come to run the session.</strong>.</li>
+
+  <li>The first section should contain the items immediate relevant to the content kit, such as the kit's source code, tutorial, slides or whatever you felt was appropriate to include. See below sections for notes on creating slides, demos, etc.</li>
+
+  <li>The second section should contain supporting documentation, such as a tutorial showing how to build up the content kit demo and references docs for the technologies involves, if attendees want to study the subject more deeply, and/or if the presenter wants to deliver some kind of extended workshop on the subject matter.</li>
+</ol>
+
+<h3>Presentation setup and materials</h3>
+
+<p>This section is intended to provide the presenter with all they need to present confidently on the subject. Slides are essential. A video showing a previous presenter giving the talk would also be useful, but isn't essential, at least not immediately. It would be an idea to capture the first run of the content kit on video and provide that at a later date.</p>
+
+<p>The notes are intended to give the presenter some guidance on how to run the presentation. It is a good idea to always include timings to show the presenter how long they'll need to run through the presentation, perhaps with or without a live demo, or running a tutorial.</p>
+
+<h3>Demo setup and materials</h3>
+
+<p>This section is intended to provide the presenter with the instructions they need to confidently run a demo about the content kit subject. It includes sections to provide:</p>
+
+<ul>
+  <li>A link to the demo materials</li>
+  <li>A walkthrough of exactly what to do to run the demo.</li>
+  <li>A series of troubleshooting tips in case the demo doesn't work.</li>
+  <li>A link to a video of the demo being used, if required</li>
+  <li>Instructions on how to run the demo offline, if possible/needed</li>
+</ul>
+
+<h3>Frequently asked questions (FAQs)</h3>
+
+<p>This section allows you to include an FAQ to cover some of the most common questions you might be asked, as a time saving aid for the presenter during Q&amp;A. If you have an existing FAQ resource, you could always link to that instead.</p>
+
+<h2 id="building_a_demo">Building a demo</h2>
+
+<p>To create a good demo, you need to write a code package that is as self-contained and easy to present as possible.</p>
+
+<ol>
+  <li>Ideally the demo should run offline, and not require much setup. If either or both are not possible, provide clear, detailed instructions on how to install/setup the demo, including any necessary hardware steps. There is a space in the content kit index file to include these instructions, but you should consider including the instructions in the demo files too, especially if you are going to distribute the demo in a separate repo.</li>
+  <li>If you are intending to include a tutorial element in your content kit, it is a good idea to include different versions of your code — a starting template, a final version, and an intermediate version for each step in the tutorial. This will allow the audience to pick up the tutorial at any point, and also check their code against the tutorial if they find themselves going wrong.</li>
+  <li>ONLY include code that is relevant to the content kit. A large amount of non-relevant code can easily distract or confuse the audience. For example, our demo content kit on HTML5 video captions and subtitles only really includes JavaScript and HTML. A very minimal amount of CSS has been included for clarity, but no more.</li>
+  <li>Write your code as cleanly and understandably as possible, even if it is not the most efficient way to do it. The aim is comprehension, not efficient code (ok, a content kit on "efficient JavaScript" might be an exception to this rule...) Also stick with pure technology where appropriate; for example if you are teaching a specific JavaScript API, writing all the surrounding DOM calls using jQuery could easily limit comprehension. The audience would then need jQuery as an extra level of knowledge on top of JavaScript.</li>
+  <li>Make sure you use resources that you have the rights to use. Copyrighted images and videos, for example, could cause legal problems. Use your own or find something with a permissive license. For example, our demo content kit uses an excerpt from <a href="https://durian.blender.org/">Sintel</a>, an open source animation created by <a href="http://www.blender.org/foundation/">The Blender Foundation</a>.</li>
+</ol>
+
+<h2 id="writing_a_slideshow">Writing a slideshow</h2>
+
+<p>When writing a slideshow, you need to consider both the implementation technology and the content of the slides. We'll consider these two aspects separately.</p>
+
+<h3>Slide implementation</h3>
+
+<p>When choosing a technology to implement slides in, you can obviously choose whatever you like. However, we would recommend that you use open web technologies to implement your slides. Programs such as Powerpoint and Keynote work well, but they are not so good for distribution — you cannot guarantee that others who wish to make use of the slides will have those programs, and web delivery of these formats is poor.</p>
+
+<p>If you need to use such a program, you are advised to export the result to <code>.pdf</code> format, and upload it to a site such as <a href="http://www.slideshare.net/">Slideshare</a>.</p>
+
+<p>Creating a slide deck that looks good in web technologies can take some time, so you would be advised to use an online tool such as <a href="http://slides.com/">slides.com</a>, or a slide framework or template, such as the <a href="http://shwr.me/">Shower presentation engine</a>.</p>
+
+<p>We used Shower for the <a href="http://chrisdavidmills.github.io/html5-captions-and-subtitles-content-kit/slides/">Working with HTML5 Video: Adding captions and subtitles</a> slides. It is fairly easy to use and looks good.</p>
+
+<p>One thing to make sure of before you settle for a technology in which to present your slides is that your slides will be accessible both offline, and online (for wide distribution).</p>
+
+<h3>Slide content</h3>
+
+<p>Now let's think about what content to include in the slides. There are a lot of opinions on what makes a good slide deck, but below we've included just some basic advice on making your slides readable, and usable for an effective presentation.</p>
+
+<ul>
+  <li>Keep your text nice and big: there is nothing worse than a single slide with several paragraphs of tiny unreadable text on it. Ask yourself — "can I read this on a projector from the other slide of the room"?</li>
+  <li>Short phrases: because text needs to be big, you'll only be able to fit short phrases on to your slides, but this is fine. You should know the subject well enough to talk around these short phrases and provide more detail — they should just act as reminders/"memory joggers".</li>
+  <li>Provide link to more information: usually this is best done at the end of the slideshow; you should link to more details either in other parts of the content kit or external articles as needed.</li>
+  <li>Not too much code: Some people think having any code in a slideshow is a really bad thing; if you do need to show code, keep it simple and short. If really want to show a large complex section of code, consider showing some pseudo code instead, or a diagram to illustrate the general concepts.</li>
+  <li>Not too complex: Generally a slide deck should provide a high level overview of the main concepts in the topic it is about, and allow you to add extra verbal explanation and demos where you think more detail is needed. It is not a tutorial. If you provide every tiny detail and a million code demos, it will only be less flexible, less distributable, harder to localize, and hard to present.</li>
+  <li>Keep it fun, if possible: Not everyone is a comedian, but at the same time there is no reason why your presentation has to be deadly serious and academic. A well placed joke or fun graphic can lighten the mood and help people remember what you are saying. Just make sure you don't over-do it, and steer clear of controversial or risqué humour.</li>
+</ul>
+
+<h2>Optional items</h2>
+
+<p>So far we've run through all the items that we feel are mandatory for a content kit. But you needn't stop there — it is perfectly ok to add optional extra parts that can be called upon if deemed necessary.</p>
+
+<p>Here are some extra content ideas that you may want to include:</p>
+
+<ul>
+  <li>One or more tutorials: The main point of the content kits are to do presentations on topics, but you could also provide a tutorial or two to follow if you want to also provide a class/workshop section. Our <a href="http://chrisdavidmills.github.io/html5-captions-and-subtitles-content-kit/tutorial/">sample content kit includes a tutorial</a> to show how to build up the example, and how it works.</li>
+  <li>Videos: A video can often speak 10,000 words. Some people prefer to learn by watching a video, and a video can often be useful to demonstrate tricky to describe concepts. Some useful videos could include:
+    <ul>
+      <li>A full video of the presentation and demo being performed, so anyone can watch the presentation even if they don't have a presenter available.</li>
+      <li>A video showing how to set up the environment and code to run the demo, for the benefit of both presenter and students.</li>
+      <li>A video showing the demo running correctly, so the presenter can show the audience what the demo should look like even if they can get it to run or don't have the right tools available.</li>
+    </ul>
+  </li>
+</ul>
+
+  </body>
+</html>
